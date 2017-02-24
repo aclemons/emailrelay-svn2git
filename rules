@@ -1,0 +1,17 @@
+create repository emailrelay
+end repository
+
+match /branches/([^/]+)/
+  repository emailrelay
+  branch \1
+end match
+
+match /tags/([^/]+)/
+  repository emailrelay
+  branch refs/tags/\1
+end match
+
+match /trunk/
+  repository emailrelay
+  branch master
+end match

@@ -28,7 +28,7 @@ fi
   cd kde-ruleset
   git remote update --prune
   git reset --hard origin/master
-  perl -i -pe 's/\.XXXXX /.XXXXXX /g' bin/filter-goodies
+  sed 's/\.XXXXX /.XXXXXX /g' bin/filter-goodies > bin/filter-goodies.new && mv bin/filter-goodies.new bin/filter-goodies
 )
 
 RULESETDIR="$(pwd)"/kde-ruleset

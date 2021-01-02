@@ -2,6 +2,8 @@
 
 # Migrate emailrelay from sf svn to a git repository using svn-all-fast-export
 
+export FILTER_BRANCH_SQUELCH_WARNING=1
+
 set -e
 
 for cmd in svnsync svn-all-fast-export ; do

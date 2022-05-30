@@ -39,8 +39,12 @@ export RULESETDIR
 (
   cd emailrelay
   git update-ref -d refs/heads/g_walker
+  git update-ref -d refs/tags/backups/V_2_3@291
 
   git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch CVSROOT' --tag-name-filter cat -- --all
+  "$RULESETDIR/bin/remove-fb-backup-refs.sh"
+
+  "$RULESETDIR/bin/parent-adder" ../parent-map
   "$RULESETDIR/bin/remove-fb-backup-refs.sh"
 
   "$RULESETDIR/bin/fix-tags"

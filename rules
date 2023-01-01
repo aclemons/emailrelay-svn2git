@@ -1,6 +1,141 @@
 create repository emailrelay
 end repository
 
+match /.*CVSROOT.*/
+end match
+
+match /branches/g_walker/$
+  min revision 4
+  max revision 4
+  action recurse
+end match
+
+match /tags/start/$
+  min revision 6
+  max revision 6
+  action recurse
+end match
+
+match /tags/V_1_5/$
+  min revision 57
+  max revision 57
+  action recurse
+end match
+
+match /tags/V_1_6/$
+  min revision 67
+  max revision 67
+  action recurse
+end match
+
+match /tags/V_1_8/$
+  min revision 172
+  max revision 172
+  action recurse
+end match
+
+match /tags/V_1_8_1/$
+  min revision 176
+  max revision 176
+  action recurse
+end match
+
+match /tags/V_1_9/$
+  min revision 221
+  max revision 221
+  action recurse
+end match
+
+match /tags/V_2_0/$
+  min revision 238
+  max revision 238
+  action recurse
+end match
+
+match /branches/V_2_0_fixes/$
+  min revision 239
+  max revision 239
+  action recurse
+end match
+
+match /branches/V_2_0_1/$
+  min revision 258
+  max revision 258
+  action recurse
+end match
+
+match /tags/V_2_1/$
+  min revision 262
+  max revision 262
+  action recurse
+end match
+
+match /branches/V_2_1_fixes/$
+  min revision 263
+  max revision 263
+  action recurse
+end match
+
+match /tags/V_2_2/$
+  min revision 274
+  max revision 274
+  action recurse
+end match
+
+match /branches/V_2_2_fixes/$
+  min revision 275
+  max revision 275
+  action recurse
+end match
+
+match /branches/V_2_2_1/$
+  min revision 284
+  max revision 284
+  action recurse
+end match
+
+match /branches/V_2_3/$
+  min revision 290
+  max revision 290
+  action recurse
+end match
+
+match /tags/V_2_3/$
+  min revision 291
+  max revision 291
+  action recurse
+end match
+
+match /branches/V_2_3_fixes/$
+  min revision 292
+  max revision 292
+  action recurse
+end match
+
+match /branches/V_2_3_1/$
+  min revision 294
+  max revision 294
+  action recurse
+end match
+
+match /tags/V_2_4/$
+  min revision 308
+  max revision 308
+  action recurse
+end match
+
+match /tags/V_2_4_1/$
+  min revision 310
+  max revision 310
+  action recurse
+end match
+
+match /branches/V_2_4_1_fixes/$
+  min revision 314
+  max revision 314
+  action recurse
+end match
+
 match /branches/([^/]+)/
   repository emailrelay
   branch \1

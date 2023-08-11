@@ -136,6 +136,12 @@ match /branches/V_2_4_1_fixes/$
   action recurse
 end match
 
+match /branches/V_2_5/$
+  min revision 334
+  max revision 334
+  action recurse
+end match
+
 match /branches/([^/]+)/
   repository emailrelay
   branch \1

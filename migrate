@@ -64,6 +64,8 @@ export RULESETDIR
   FIX_TAGS_NONCVS=1 "$RULESETDIR/bin/fix-tags"
   "$RULESETDIR/bin/remove-fb-backup-refs.sh"
 
+  git update-ref -d refs/tags/backups/V_2_5@335
+
   git reflog expire --expire=now --all
   git gc --prune=now
   git gc --aggressive --prune=now

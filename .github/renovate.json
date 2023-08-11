@@ -1,30 +1,33 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:best-practices",
-        "helpers:pinGitHubActionDigests"
-    ],
-    "rangeStrategy": "pin",
-    "packageRules": [
-        {
-            "matchDepNames": "ubuntu gha runner",
-            "extractVersion": "^ubuntu(?<version>\\d\\d).*?$"
-        }
-    ],
-    "regexManagers": [
-        {
-            "fileMatch": [
-                "^.github/(?:workflows|actions)/.+\\.ya?ml$"
-            ],
-            "matchStrings": [
-                "ubuntu-(?<currentValue>\\d\\d|latest)(\\.\\d\\d)?"
-            ],
-            "depNameTemplate": "ubuntu gha runner",
-            "packageNameTemplate": "actions/runner-images",
-            "datasourceTemplate": "github-releases",
-            "versioningTemplate": "loose",
-            "currentValueTemplate": "{{{replace 'latest' '16' currentValue}}}",
-            "autoReplaceStringTemplate": "ubuntu-{{{newValue}}}.04"
-        }
-    ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "packageRules": [
+    {
+      "extractVersion": "^ubuntu(?<version>\\d\\d).*?$",
+      "matchDepNames": "ubuntu gha runner"
+    }
+  ],
+  "pre-commit": {
+    "enabled": true
+  },
+  "rangeStrategy": "pin",
+  "regexManagers": [
+    {
+      "autoReplaceStringTemplate": "ubuntu-{{{newValue}}}.04",
+      "currentValueTemplate": "{{{replace 'latest' '16' currentValue}}}",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "ubuntu gha runner",
+      "fileMatch": [
+        "^.github/(?:workflows|actions)/.+\\.ya?ml$"
+      ],
+      "matchStrings": [
+        "ubuntu-(?<currentValue>\\d\\d|latest)(\\.\\d\\d)?"
+      ],
+      "packageNameTemplate": "actions/runner-images",
+      "versioningTemplate": "loose"
+    }
+  ]
 }

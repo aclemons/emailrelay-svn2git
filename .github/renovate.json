@@ -16,6 +16,7 @@
   "rangeStrategy": "pin",
   "regexManagers": [
     {
+      "customType": "regex",
       "autoReplaceStringTemplate": "ubuntu-{{{newValue}}}.04",
       "currentValueTemplate": "{{{replace 'latest' '16' currentValue}}}",
       "datasourceTemplate": "github-releases",

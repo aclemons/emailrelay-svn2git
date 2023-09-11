@@ -2,33 +2,18 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices",
-    "helpers:pinGitHubActionDigests"
+    ":maintainLockFilesMonthly",
+    ":separateMajorReleases",
+    ":separateMultipleMajorReleases",
+    ":separatePatchReleases",
+    "regexManagers:dockerfileVersions",
+    "regexManagers:githubActionsVersions",
+    "schedule:earlyMondays"
   ],
-  "packageRules": [
-    {
-      "extractVersion": "^ubuntu(?<version>\\d\\d).*?$",
-      "matchDepNames": "ubuntu gha runner"
-    }
-  ],
+  "ignoreTests": false,
   "pre-commit": {
     "enabled": true
   },
   "rangeStrategy": "pin",
-  "regexManagers": [
-    {
-      "customType": "regex",
-      "autoReplaceStringTemplate": "ubuntu-{{{newValue}}}.04",
-      "currentValueTemplate": "{{{replace 'latest' '16' currentValue}}}",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "ubuntu gha runner",
-      "fileMatch": [
-        "^.github/(?:workflows|actions)/.+\\.ya?ml$"
-      ],
-      "matchStrings": [
-        "ubuntu-(?<currentValue>\\d\\d|latest)(\\.\\d\\d)?"
-      ],
-      "packageNameTemplate": "actions/runner-images",
-      "versioningTemplate": "loose"
-    }
-  ]
+  "timezone": "Asia/Tokyo"
 }

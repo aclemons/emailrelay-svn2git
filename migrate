@@ -65,6 +65,7 @@ export RULESETDIR
   "$RULESETDIR/bin/remove-fb-backup-refs.sh"
 
   git update-ref -d refs/tags/backups/V_2_5@335
+  git update-ref -d refs/tags/backups/V_2_5_1@347
 
   git reflog expire --expire=now --all
   git gc --prune=now

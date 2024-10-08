@@ -25,6 +25,12 @@ jobs:
           fetch-depth: 0
           show-progress: false
 
+      - name: Install dependencies
+        run: |
+          # install updates
+          sudo apt-get update
+          sudo apt-get install subversion
+
       - name: Check migration status
         run: |
           cd emailrelay
